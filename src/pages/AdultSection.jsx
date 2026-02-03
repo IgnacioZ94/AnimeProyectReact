@@ -18,8 +18,8 @@ const AdultSection = () => {
 
     return (
         <div className="container">
-            <div className="alert alert-warning mb-4 shadow-sm" role="alert">
-                Sección +18 (Safe for Work Mode Active)
+            <div className="alert border-0 shadow-sm mb-4 py-3" style={{ backgroundColor: 'var(--card-bg)', color: 'var(--text-main)', borderLeft: '4px solid var(--primary-color) !important' }} role="alert">
+                <i className="bi bi-info-circle me-2"></i> Sección +18 (Safe for Work Mode Active)
             </div>
             <div className="row">
                 {animes.map(anime => (

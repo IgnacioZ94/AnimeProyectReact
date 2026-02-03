@@ -1,18 +1,102 @@
-/* index.css */
+/* refined premium design system */
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --nav-bg: rgba(243, 244, 246, 0.8);
+    --nav-border: rgba(0, 0, 0, 0.1);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* increased specificity for dark theme */
+html[data-theme='dark'],
+[data-theme='dark'] {
+    --bg-color: #0f172a !important;
+    --card-bg: #1e293b !important;
+    --text-main: #f8fafc !important;
+    --text-muted: #94a3b8 !important;
+    --nav-bg: rgba(15, 23, 42, 0.8) !important;
+    --nav-border: rgba(255, 255, 255, 0.1) !important;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
 body {
-    background-color: #f8f9fa;
+    background-color: var(--bg-color) !important;
+    color: var(--text-main) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
     min-height: 100vh;
+    margin: 0;
 }
 
-.card-img-top {
-    height: 300px;
-    object-fit: cover;
+.navbar {
+    background-color: var(--nav-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--nav-border) !important;
+    transition: background-color 0.4s ease;
 }
 
-.anime-card {
-    transition: transform 0.2s;
+.card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--nav-border) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
 }
 
 .anime-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card-img-top {
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.anime-card:hover .card-img-top {
     transform: scale(1.05);
+}
+
+/* specific fixes for invisible text in dark mode */
+.card-title,
+.card-text,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label {
+    color: var(--text-main);
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* fix for alert contrast in dark mode */
+.alert {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--nav-border) !important;
 }

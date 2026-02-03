@@ -24,23 +24,26 @@ const Detail = () => {
 
     return (
         <div className="container mt-5 pb-5">
-            <button className="btn btn-secondary mb-4" onClick={() => navigate(-1)}>&larr; Volver</button>
-            <div className="row">
-                <div className="col-md-4">
+            <button className="btn btn-outline-primary mb-4 border-0" onClick={() => navigate(-1)}>
+                <span className="me-2">&larr;</span> Volver
+            </button>
+            <div className="row g-5">
+                <div className="col-md-5">
                     <img
                         src={anime.imageUrl}
-                        className="img-fluid rounded shadow-lg"
+                        className="img-fluid rounded-4 shadow-lg w-100"
                         alt={anime.title}
+                        style={{ border: '1px solid var(--nav-border)' }}
                     />
                 </div>
-                <div className="col-md-8">
-                    <h1 className="fw-bold">{anime.title}</h1>
-                    <div className="d-flex align-items-center mb-3">
-                        <span className="badge bg-warning text-dark me-2">⭐ {anime.score || 'N/A'}</span>
-                        <span className="badge bg-info">{anime.rating || 'Rating N/A'}</span>
+                <div className="col-md-7">
+                    <h1 className="fw-black mb-1" style={{ color: 'var(--text-main)', fontSize: '3rem' }}>{anime.title}</h1>
+                    <div className="d-flex align-items-center mb-4 gap-2">
+                        <span className="badge rounded-pill bg-warning text-dark px-3 py-2">⭐ {anime.score || 'N/A'}</span>
+                        <span className="badge rounded-pill bg-primary px-3 py-2">{anime.rating || 'Rating N/A'}</span>
                     </div>
-                    <h4>Sinopsis</h4>
-                    <p className="lead" style={{ textAlign: 'justify' }}>
+                    <h4 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Sinopsis</h4>
+                    <p className="lead mb-4" style={{ textAlign: 'justify', color: 'var(--text-muted)', lineHeight: '1.8' }}>
                         {anime.synopsis || 'Sin descripción disponible.'}
                     </p>
 
